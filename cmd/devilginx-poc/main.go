@@ -7,5 +7,5 @@ import (
 func main() {
 	r := server.GetRouter()
 
-	r.Run(":8080")
+	r.RunTLS("localhost:8443", "./cmd/devilginx-poc/testcert.crt", "./cmd/devilginx-poc/test.key")
 }
