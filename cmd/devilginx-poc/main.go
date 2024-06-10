@@ -2,10 +2,12 @@ package main
 
 import (
 	"devilginx/server"
+
+	"github.com/gin-gonic/autotls"
 )
 
 func main() {
 	r := server.GetRouter()
 
-	r.RunTLS("localhost:8443", "./cmd/devilginx-poc/testcert.crt", "./cmd/devilginx-poc/test.key")
+	autotls.Run(r, "localhost")
 }
