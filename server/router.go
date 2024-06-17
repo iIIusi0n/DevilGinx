@@ -3,6 +3,7 @@ package server
 import (
 	"bytes"
 	"compress/gzip"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -77,6 +78,7 @@ func ReverseProxyHandler(target string) gin.HandlerFunc {
 			}
 
 			bodyString := string(bodyBytes)
+			fmt.Println(bodyString)
 
 			modifiedBodyString := strings.ReplaceAll(bodyString, "Sign in", "Do not sign in")
 
